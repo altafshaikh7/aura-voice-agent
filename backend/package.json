@@ -1,12 +1,16 @@
 {
-  "name": "backend",
+  "name": "aura-voice-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
+  "engines": {
+    "node": ">=24 <25"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test",
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "format": "prettier --write . --ignore-path ../.gitignore"
   },
   "keywords": [],
   "author": "",
@@ -16,9 +20,11 @@
     "@google/genai": "^2.30.0",
     "cors": "^2.8.6",
     "dotenv": "^18.0.8",
-    "express": "^5.3.0"
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "prettier": "^3.9.10"
   }
 }
