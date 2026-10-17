@@ -21,7 +21,7 @@ Aria is a browser-based AI voice support assistant for Aura Skincare. Customers 
 - **Application:** https://aura-voice-agent-topaz.vercel.app/
 - **Backend API health check:** https://aura-voice-agent-usrh.onrender.com/
 - **Source code:** https://github.com/altafshaikh7/aura-voice-agent
-- **Demo video:** to be added by author
+- **Demo video:** https://drive.google.com/file/d/13qiIEH8lo9hZW4FdK70fEiUKwbG73PFk/view?usp=sharing
 
 **Quick test (for evaluators):** Open the application in desktop Chrome or Edge, allow microphone access, click **Start Call**, and try the phrases from the **Test Orders** panel. The backend runs on a free Render instance, so the first request after inactivity can take 30-50 seconds to wake up.
 
