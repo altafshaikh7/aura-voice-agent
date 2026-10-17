@@ -2,7 +2,13 @@ function Header() {
   return (
     <header className="topbar">
       <a className="brand" href="/">
-        <span className="brand-mark">a</span>
+        <img
+          className="brand-logo"
+          src="/aura-logo.png"
+          alt="Aura Skincare logo"
+          width="36"
+          height="36"
+        />
 
         <span className="brand-copy">
           <strong>Aura</strong>
