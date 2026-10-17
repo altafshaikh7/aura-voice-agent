@@ -8,7 +8,7 @@ The browser handles microphone permission, Web Speech API recognition and speech
 
 **To:** ozair.shaikh@datastraw.in; aryan.jaiswal@datastraw.in  
 **CC:** talent@datastraw.in  
-**Subject:** AI Voice Agent Assignment - [Your Full Name]
+**Subject:** AI Voice Agent Assignment - Altaf Shaikh
 
 Hello,
 
