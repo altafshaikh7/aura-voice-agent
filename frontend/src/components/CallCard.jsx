@@ -18,7 +18,13 @@ function CallCard({ callStatus, isSupported, error, startCall, endCall }) {
 
       <div className={`voice-orb ${callStatus.toLowerCase()}`}>
         <div className="orb-inner">
-          <img src="/aura-logo.png" alt="Aura Skincare logo" className="orb-logo" />
+          <img
+            src="/aura-logo.png"
+            alt="Aria, Aura Skincare voice assistant"
+            className="orb-logo"
+            width="77"
+            height="77"
+          />
         </div>
       </div>
 
