@@ -14,10 +14,10 @@ Hello,
 
 Please find my AI Voice Agent assignment submission below.
 
-- **Application URL:** [Public HTTPS application URL]
-- **GitHub Repository:** [Public GitHub repository URL]
-- **Demo Video Link:** [Demo video URL]
-- **LinkedIn Profile Link:** [LinkedIn profile URL]
+- **Application URL:** https://aura-voice-agent-topaz.vercel.app/
+- **GitHub Repository:** https://github.com/altafshaikh7/aura-voice-agent
+- **Demo Video Link:** [Demo Video Link]
+- **LinkedIn Profile Link:** [LinkedIn Profile Link]
 
 **Approach:** The browser handles microphone permission, Web Speech API recognition and speech synthesis, while an Express backend keeps the Gemini credential and order lookup logic server-side. Gemini function calling requests a read-only order lookup, and backend code computes return and cancellation eligibility from the configured policies before sending verified order data back to Gemini. A separate post-call summary endpoint validates structured model output and provides a deterministic fallback when the returned JSON is invalid.
 
@@ -42,6 +42,7 @@ Target length: approximately 4 minutes 30 seconds. Use the deployed HTTPS site i
 ## Pre-submission checklist
 
 - [ ] Public application URL loads over HTTPS.
+- [ ] Open the backend URL (https://aura-voice-agent-usrh.onrender.com/) once before submitting and before recording the video; the free Render instance may take 30-50 seconds to wake after inactivity.
 - [ ] Microphone permission works on the deployed site in desktop Chrome or Edge.
 - [ ] GitHub repository is public and has `backend/`, `frontend/`, and the root `README.md`.
 - [ ] `backend/.env.example` and `frontend/.env.example` are present.
