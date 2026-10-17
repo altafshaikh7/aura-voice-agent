@@ -312,10 +312,11 @@ These values are read by `backend/config/env.js` or `frontend/src/config/env.js`
 
 #### Deploy the backend to Render
 
-1. Push the repository to GitHub and create a Render **Blueprint** using the root `render.yaml`. The service uses `backend/` as its root directory, runs `npm install` and `npm start`, and checks `/` for health.
-2. In the Render service environment, set `GEMINI_API_KEY` to your secret key, and set `FRONTEND_URL` to `https://aura-voice-agent-topaz.vercel.app`. This is the exact frontend origin allowed by backend CORS. Multiple exact frontend origins can be comma-separated. Do not add a trailing slash.
-3. `GEMINI_MODEL` defaults to `gemini-flash-latest`; `NODE_ENV` and `TRUST_PROXY` are set to production-safe values by the blueprint. Render supplies `PORT`.
-4. Wait for the deployment to become healthy and copy the Render service's HTTPS URL.
+Create the backend as a Render **Web Service** with `backend/` as the root directory, `npm install` as the build command, `npm start` as the start command, and the **Free** instance type. Alternatively, push the repository to GitHub and create a Render **Blueprint** using the root `render.yaml`.
+
+For the Web Service route, set `GEMINI_API_KEY` in Render's environment, along with `GEMINI_MODEL` (defaults to `gemini-flash-latest`), `NODE_ENV=production`, and `FRONTEND_URL=https://aura-voice-agent-topaz.vercel.app`. `FRONTEND_URL` is the exact frontend origin allowed by backend CORS; multiple exact origins can be comma-separated, without trailing slashes. Render supplies `PORT`.
+
+Wait for the deployment to become healthy and copy the Render service's HTTPS URL.
 
 #### Deploy the frontend to Vercel
 
@@ -336,11 +337,16 @@ These values are read by `backend/config/env.js` or `frontend/src/config/env.js`
 
 - Voice calls are supported only in desktop Google Chrome and Microsoft Edge where the browser provides the Web Speech API. Microphone access requires HTTPS, except on localhost; browser and operating-system permission settings still apply.
 - Browser speech synthesis selects an available `en-IN` voice when possible; otherwise the voice is supplied by the browser/operating system.
+- Only English (`en-IN`) is supported; Hinglish is not.
 - Recognition is deliberately stopped while Aria speaks to reduce self-transcription. **Barge-in is not implemented**: a caller cannot interrupt an utterance and have it recognized during playback.
 - `get_order_details` is read-only. The system does not perform real cancellations, returns, replacements, refunds, or account changes.
 - Orders are static mock records loaded from `backend/data/orders.json`; this is not a live order system.
 - There is no authentication or customer identity/order ownership verification.
 - Free-tier hosting may introduce backend cold starts. Gemini free-tier quotas/rate limits can also constrain testing and production traffic; response latency additionally depends on network and Gemini availability.
+
+#### Security note
+
+The three high-severity npm audit advisories in the backend are in the development-only `nodemon` dependency chain and do not affect production dependencies. They were not force-fixed because the fix is a breaking downgrade.
 
 ### Local testing guide
 
@@ -402,7 +408,7 @@ aura-voice-agent/
 
 ## Prerequisites
 
-- Node.js 20 or newer and npm
+- Node.js 24.x (the backend requires `>=24 <25`) and npm
 - A Google Gemini API key for chat and call summaries
 - Desktop Google Chrome or Microsoft Edge for voice calls
 
