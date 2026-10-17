@@ -1,6 +1,22 @@
+
+<div align="center">
+
 # Aura Skincare Voice Agent
 
+**Aria — AI Voice Customer Support Assistant**
+
 Aria is a browser-based AI voice support assistant for Aura Skincare. Customers can ask about orders and brand policies, see verified order lookups in the transcript, and review a structured summary when a call ends.
+
+### Tech Stack
+
+<img src="https://skillicons.dev/icons?i=react,vite,js,nodejs,express,npm,css,html" alt="React, Vite, JavaScript, Node.js, Express, npm, CSS and HTML" />
+
+**AI:** Google Gemini API  
+**Voice:** Web Speech API · SpeechRecognition · SpeechSynthesis  
+**Data:** JSON mock order database
+
+</div>
+
 
 ## Contents
 
