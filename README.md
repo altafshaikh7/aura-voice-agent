@@ -1,4 +1,3 @@
-
 <div align="center">
 
 # Aura Skincare Voice Agent
@@ -17,9 +16,18 @@ Aria is a browser-based AI voice support assistant for Aura Skincare. Customers 
 
 </div>
 
+## Live Demo
+
+- **Application:** https://aura-voice-agent-topaz.vercel.app/
+- **Backend API health check:** https://aura-voice-agent-usrh.onrender.com/
+- **Source code:** https://github.com/altafshaikh7/aura-voice-agent
+- **Demo video:** to be added by author
+
+**Quick test (for evaluators):** Open the application in desktop Chrome or Edge, allow microphone access, click **Start Call**, and try the phrases from the **Test Orders** panel. The backend runs on a free Render instance, so the first request after inactivity can take 30-50 seconds to wake up.
 
 ## Contents
 
+- [Live Demo](#live-demo)
 - [Features](#features)
 - [Tech stack](#tech-stack)
 - [Architecture](#architecture)
@@ -305,7 +313,7 @@ These values are read by `backend/config/env.js` or `frontend/src/config/env.js`
 #### Deploy the backend to Render
 
 1. Push the repository to GitHub and create a Render **Blueprint** using the root `render.yaml`. The service uses `backend/` as its root directory, runs `npm install` and `npm start`, and checks `/` for health.
-2. In the Render service environment, set `GEMINI_API_KEY` to your secret key, and set `FRONTEND_URL` to the Vercel frontend origin. Multiple exact frontend origins can be comma-separated. Do not add a trailing slash.
+2. In the Render service environment, set `GEMINI_API_KEY` to your secret key, and set `FRONTEND_URL` to `https://aura-voice-agent-topaz.vercel.app`. This is the exact frontend origin allowed by backend CORS. Multiple exact frontend origins can be comma-separated. Do not add a trailing slash.
 3. `GEMINI_MODEL` defaults to `gemini-flash-latest`; `NODE_ENV` and `TRUST_PROXY` are set to production-safe values by the blueprint. Render supplies `PORT`.
 4. Wait for the deployment to become healthy and copy the Render service's HTTPS URL.
 
@@ -313,8 +321,8 @@ These values are read by `backend/config/env.js` or `frontend/src/config/env.js`
 
 1. Import the same GitHub repository in Vercel and set the project root directory to `frontend/`.
 2. Vercel detects the Vite framework from `frontend/vercel.json`; the build is `npm run build`, and the output directory is `dist/`. The rewrite sends SPA paths to `index.html`.
-3. Add `VITE_API_URL` as an environment variable containing the Render backend HTTPS origin (no trailing slash), then deploy or redeploy after setting it.
-4. Add the final Vercel origin to the backend's `FRONTEND_URL` environment variable and redeploy/restart the backend if necessary. CORS only allows the exact configured origins; unknown browser origins receive no CORS approval.
+3. Add `VITE_API_URL=https://aura-voice-agent-usrh.onrender.com` as an environment variable. This is the backend API base URL the frontend uses to send requests. Do not add a trailing slash; then deploy or redeploy after setting it.
+4. The backend's `FRONTEND_URL` environment variable is `https://aura-voice-agent-topaz.vercel.app`, the exact Vercel origin allowed by CORS. CORS only allows the exact configured origins; unknown browser origins receive no CORS approval.
 5. Open the HTTPS Vercel site, grant microphone permission, and test in desktop Chrome or Edge. HTTPS is required for microphone access outside localhost.
 
 #### Post-deploy smoke test
