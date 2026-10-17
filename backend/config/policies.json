@@ -1,4 +1,3 @@
-
 {
   "brand": "Aura Skincare",
   "agentName": "Aria",
@@ -34,17 +33,11 @@
     },
     "cancellation": {
       "allowedStatus": "Processing",
-      "disallowedStatuses": [
-        "Shipped",
-        "Out for Delivery"
-      ]
+      "disallowedStatuses": ["Shipped", "Out for Delivery"]
     },
     "cod": {
       "maximumOrderAmount": 2500,
-      "paymentMethods": [
-        "Cash",
-        "UPI at doorstep"
-      ]
+      "paymentMethods": ["Cash", "UPI at doorstep"]
     }
   }
 }
