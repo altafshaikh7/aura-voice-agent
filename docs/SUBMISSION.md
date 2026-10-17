@@ -16,7 +16,7 @@ Please find my AI Voice Agent assignment submission below.
 
 - **Application URL:** https://aura-voice-agent-topaz.vercel.app/
 - **GitHub Repository:** https://github.com/altafshaikh7/aura-voice-agent
-- **Demo Video Link:** https://drive.google.com/file/d/13qiIEH8lo9hZW4FdK70fEiUKwbG73PFk/view?usp=sharing
+- **Demo Video Link:** https://drive.google.com/file/d/1BEj39UNuxErzuE_qs17EI5IJ32GmKvLV/view?usp=sharing
 - **LinkedIn Profile Link:** [LinkedIn Profile Link]
 
 **Approach:** The browser handles microphone permission, Web Speech API recognition and speech synthesis, while an Express backend keeps the Gemini credential and order lookup logic server-side. Gemini function calling requests a read-only order lookup, and backend code computes return and cancellation eligibility from the configured policies before sending verified order data back to Gemini. A separate post-call summary endpoint validates structured model output and provides a deterministic fallback when the returned JSON is invalid.
